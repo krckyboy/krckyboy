@@ -40,7 +40,7 @@
 
 // Styles for real buttons
 .btn_button {
-    @include small_shadow();
+    @include tiny_shadow();
     @include small_border_radius();
     align-self: baseline;
     margin-left: auto;
