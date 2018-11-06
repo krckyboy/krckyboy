@@ -41,7 +41,7 @@
                 </div>
                 <nav class="mobile_nav faded" id="mobile_nav">
                     <ul class="nav_ul">
-                        <a href="/">
+                        <a href="index.md">
                             <li>Home</li>
                         </a>
                         <a href="#">
