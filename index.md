@@ -16,7 +16,7 @@
             <div class="header_container container_common">
                 <div class="logoContainer">
                     <span class="logo">
-                        <a href="/">
+                        <a href="index.md">
                             <img class="logo_image" src="images/logo.svg" alt="Logo - John Smith Photography">
                         </a>
                     </span>
@@ -41,7 +41,7 @@
                 </div>
                 <nav class="mobile_nav faded" id="mobile_nav">
                     <ul class="nav_ul">
-                        <a href="/">
+                        <a href="index.md">
                             <li class="nav_active">Home</li>
                         </a>
                         <a href="#">
