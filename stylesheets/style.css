@@ -290,6 +290,10 @@ a {
   padding-left: 2rem;
   padding-right: 2rem; }
 
+.padding_common_and_bot_slightly_bigger {
+  padding: 2rem;
+  padding-bottom: 3rem; }
+
 .padding_top_bigger {
   padding-top: 4rem; }
 
@@ -351,7 +355,7 @@ a {
     height: .5rem;
     border-top: 0.24rem solid #E54B4B;
     top: 10%;
-    width: 30rem;
+    width: 25rem;
     left: 50%;
     transform: translateX(-50%); }
   .footer .social_icons {
@@ -650,7 +654,8 @@ a {
   .slideshow_thumb_container .slideshow_photo {
     width: 50%;
     margin: .5rem;
-    max-height: 100%; }
+    height: 10rem;
+    border-radius: 4px; }
 
 .button-like_container {
   display: flex;
