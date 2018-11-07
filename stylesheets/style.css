@@ -199,6 +199,9 @@ a {
 .visible {
   opacity: 1; }
 
+.overflow_hidden {
+  overflow: hidden; }
+
 .translate_away {
   transform: translateX(-100%); }
 
