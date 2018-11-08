@@ -21,3 +21,14 @@ Responsive trick;
 
  -- 1. Dodati mozda jos jedan container za slideshow kako bi mogao da tu rasiris sliku, a pritom i da to bude position relative za arrows
  -- 2. Proveriti components za slideshow
+
+----------------------------------------
+
+ Overlay layout:
+
+    // layout
+    position: fixed;
+    top: 6rem; // height of header
+    right: 0;
+    bottom: 0;
+    left: 0;

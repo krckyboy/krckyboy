@@ -18,6 +18,10 @@ const ut = {
     // Toggles a class for
     toggleClassOnID: function (ID, classToToggle) {
         document.getElementById(ID).classList.toggle(classToToggle)
+    },
+    // Toggle a class on body element
+    toggleClassOnBody: function(classToToggle) {
+        document.body.classList.toggle(classToToggle);
     }
 }
 
@@ -32,13 +36,14 @@ class overlay_fs_item {
         this.element.addEventListener("click", e => {
             this.toggleVisibility();
             this.toggle_button_adjust();
-            document.body.classList.toggle("overflow_hidden");
+            ut.toggleClassOnBody("overflow_hidden");
         })
 
         this.toggle_button.addEventListener("click", e => {
             if (this.toggle_button.classList.contains("overflay_fs_active")) {
                 document.querySelector(".overlay_fs.active").classList.toggle("active");
                 this.toggle_button_adjust();
+                ut.toggleClassOnBody("overflow_hidden");
             }
         })
     }
