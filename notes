@@ -32,3 +32,17 @@ Responsive trick;
     right: 0;
     bottom: 0;
     left: 0;
+
+----------------------------------------
+
+In media queries, you use ems
+1em = 16px
+[600px] = 600 / 16 = 37.5 em
+
+-------------------------------------------
+
+Todo projects:
+remove padding on bottom container
+justify content space between
+img remove margins
+arrows position absolute and width 100%

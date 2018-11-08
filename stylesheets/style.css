@@ -1,3 +1,8 @@
+/* 
+In media queries, you use ems
+1em = 16px
+[600px] = 600 / 16 = 37.5 em
+*/
 *,
 *::before,
 *::after {
@@ -219,7 +224,7 @@ a {
   transform: rotate(-45deg) translate(0.6rem, -0.7rem); }
 
 .header {
-  height: 60px;
+  height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -379,7 +384,8 @@ a {
 
 .container_common {
   max-width: 86rem;
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 .footer {
   position: relative; }
@@ -652,7 +658,6 @@ a {
   position: relative; }
 
 .slideshow {
-  max-width: 60rem;
   margin: 0 auto; }
 
 .slideshow_full_screen {
