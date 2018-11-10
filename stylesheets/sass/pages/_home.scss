@@ -84,19 +84,23 @@
             flex-direction: row-reverse;
 
             .about_img_2 {
-                max-height: 34rem;
+                max-height: 35rem;
                 width: 51%;
                 transform: translate(22%, -9%);
                 margin-left: 0;
             }
 
             .about_2 {
-                transform: translate(19%, 13%);
+                transform: translate(28%, 13%);
                 position: absolute;
                 right: 46%;
                 width: 62%;
                 padding-right: 5rem;
-                padding-bottom: 5rem;
+                padding-bottom: 3rem;
+
+                @include mqMin(49.6875em) {
+                    transform: translate(28%, 37%);
+                }
             }
         }
     }
