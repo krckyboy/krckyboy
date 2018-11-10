@@ -213,17 +213,6 @@ a {
   font-size: 1.5rem;
   text-align: center; }
 
-@media (min-width: 37.5em) {
-  .posts_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap; } }
-
-@media (min-width: 37.5em) {
-  .posts_container .post_box {
-    width: 48%; } }
-
 .posts_container .post_box .content_container .post_heading {
   font-size: 1.5rem;
   font-weight: 600; }
@@ -262,6 +251,9 @@ a {
 
 .blog_post p {
   font-size: 1.5rem; }
+
+.comment_section.container_common {
+  max-width: 76rem; }
 
 .comment_section .title {
   font-size: 2.1rem; }
@@ -468,7 +460,7 @@ a {
   margin-bottom: 6rem; }
 
 .container_common {
-  max-width: 76rem;
+  max-width: 86rem;
   margin-left: auto;
   margin-right: auto; }
 
@@ -476,6 +468,20 @@ a {
   max-width: 45rem;
   margin-left: auto;
   margin-right: auto; }
+
+@media (min-width: 37.5em) {
+  .about,
+  .my_services,
+  .work,
+  .studio,
+  .my_equipment,
+  .latest_blogs,
+  .contact {
+    padding-top: 8rem; } }
+
+@media (min-width: 37.5em) {
+  .section_heading {
+    padding-bottom: 5rem; } }
 
 .footer {
   position: relative; }
@@ -488,6 +494,10 @@ a {
     width: 25rem;
     left: 50%;
     transform: translateX(-50%); }
+  @media (min-width: 37.5em) {
+    .footer {
+      margin-top: 5rem;
+      padding-bottom: 5rem; } }
   .footer .social_icons {
     display: flex;
     justify-content: space-between;
@@ -670,12 +680,23 @@ a {
     outline: none;
     border: none; }
 
-.post_box:not(:last-child) {
+@media (min-width: 37.5em) {
+  .posts_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; } }
+
+@media (min-width: 37.5em) {
+  .posts_container .post_box {
+    width: 48%; } }
+
+.posts_container .post_box:not(:last-child) {
   margin-bottom: 2.5rem; }
 
-.post_box .post_img_container {
+.posts_container .post_box .post_img_container {
   height: 20rem; }
-  .post_box .post_img_container img {
+  .posts_container .post_box .post_img_container img {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     object-fit: cover;
@@ -683,9 +704,9 @@ a {
     width: 100%;
     height: 100%; }
 
-.post_box .content_container {
+.posts_container .post_box .content_container {
   box-shadow: 0 3px 5px lightgray; }
-  .post_box .content_container .box_footer {
+  .posts_container .post_box .content_container .box_footer {
     display: flex;
     justify-content: space-between;
     align-items: center; }
@@ -883,6 +904,9 @@ a {
   background-color: #D4D4D4;
   padding-bottom: 1rem; }
   @media (min-width: 37.5em) {
+    .about {
+      padding-bottom: 3rem; } }
+  @media (min-width: 37.5em) {
     .about .cont_about_1,
     .about .cont_about_2 {
       max-width: 90%; } }
@@ -1032,6 +1056,24 @@ a {
       font-weight: 300;
       letter-spacing: .1rem; }
 
+.blog_blogs.container_common {
+  max-width: 96rem; }
+
+@media (min-width: 37.5em) {
+  .blog_blogs .posts_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; } }
+
+@media (min-width: 37.5em) {
+  .blog_blogs .posts_container .post_box {
+    width: 48%; } }
+
+@media (min-width: 60em) {
+  .blog_blogs .posts_container .post_box {
+    width: 32%; } }
+
 .blog_blogs .arrows {
   position: relative;
   max-width: 50rem;
@@ -1085,17 +1127,19 @@ a {
         margin: 2rem;
         display: block; }
 
-.projects_main .project_box .project_text {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; }
-  .projects_main .project_box .project_text span {
-    margin: .1rem; }
-
-.projects_main .project_box:last-child {
-  padding-bottom: 3rem; }
+.projects_main .project_box {
+  padding-bottom: 2rem;
+  padding-top: 2rem; }
+  .projects_main .project_box .project_text {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
+    .projects_main .project_box .project_text span {
+      margin: .1rem; }
+  .projects_main .project_box:last-child {
+    padding-bottom: 3rem; }
 
 .blog_post_hero {
   background-image: url("../images/compressed/resized/big_35mm-analog-analogue-1002634.jpg"); }
@@ -1114,7 +1158,7 @@ a {
 
 @media (min-width: 53.75em) {
   .blog_post_main .blog_post_img_cont {
-    width: 76rem;
+    width: 86rem;
     margin: 0 auto;
     padding: 0 2rem; } }
 

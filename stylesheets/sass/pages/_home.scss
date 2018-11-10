@@ -49,6 +49,10 @@
     background-color: #D4D4D4;
     padding-bottom: 1rem; // to fix the padding because of card translate Y
 
+    @include mqMin(37.5em) {
+        padding-bottom: 3rem;
+    }
+
     .cont_about_1,
     .cont_about_2 {
         @include mqMin(37.5em) {
