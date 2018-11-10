@@ -93,6 +93,11 @@
 // [600px] = 600 / 16 = 37.5 em
 // **
 
+//600px = 37.5em
+// 500px = 
+//750px = 46.875em
+//960px = 60em
+
 @mixin mqMin($breakpoint) {
     @media (min-width: $breakpoint) {
         @content;
