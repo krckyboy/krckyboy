@@ -61,9 +61,11 @@ a {
 
 .section_heading {
   position: relative;
-  font-size: 2.7rem;
+  font-size: 1.9rem;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: .3rem; }
   .section_heading::before {
     content: "";
     position: absolute;
@@ -75,9 +77,11 @@ a {
     transform: translateX(-50%); }
 
 .projects_main .project_box .project_heading {
-  font-size: 3.3rem;
+  font-size: 2.8rem;
   text-align: center;
-  text-transform: uppercase; }
+  font-weight: 400;
+  letter-spacing: .3rem;
+  text-transform: capitalize; }
 
 .projects_main .project_box .project_text {
   font-size: 1.5rem;
@@ -330,10 +334,13 @@ a {
       margin: .7rem 0;
       transition: .5s opacity, 1s transform; }
   .header .logoContainer {
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    display: none; }
+    @media (min-width: 37.5em) {
+      .header .logoContainer {
+        display: flex; } }
     .header .logoContainer .logo .logo_image {
       max-height: 4rem; }
   .header .nav {
@@ -637,7 +644,8 @@ a {
     border-radius: 4px;
     padding: 2rem 3rem;
     display: inline-flex;
-    flex-direction: column; }
+    flex-direction: column;
+    font-weight: 600; }
   .button-like_container .primary_button {
     background-color: #E54B4B;
     color: white;
@@ -674,7 +682,7 @@ a {
   color: white;
   font-size: 1.4rem;
   text-transform: uppercase;
-  font-weight: 400; }
+  font-weight: 600; }
   .btn_button:focus {
     color: #4E4E4E;
     outline: none;
