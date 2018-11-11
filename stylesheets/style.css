@@ -228,7 +228,8 @@ a {
       height: initial; } }
 
 .posts_container .post_box .content_container .post_text {
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  line-height: 2.2rem; }
 
 .posts_container .post_box .content_container .box_footer .post_date {
   font-size: 1.5rem; }
@@ -236,7 +237,7 @@ a {
 .contact .contact_text {
   font-size: 1.6rem;
   text-align: center;
-  line-height: 2.3rem; }
+  line-height: 2.2rem; }
 
 .footer {
   font-size: 1.4rem;
@@ -255,7 +256,8 @@ a {
   text-align: center; }
 
 .blog_post p {
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  line-height: 2.2rem; }
 
 .comment_section.container_common {
   max-width: 76rem; }
@@ -271,7 +273,8 @@ a {
   font-weight: 500; }
 
 .comment_section .comment_box .comment_content .comment_text_box .comment_text {
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  line-height: 2.2rem; }
 
 .faded {
   opacity: 0; }

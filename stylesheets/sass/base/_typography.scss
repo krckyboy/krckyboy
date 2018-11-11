@@ -273,6 +273,7 @@ a {
 
             .post_text {
                 font-size: $font_common;
+                line-height: 2.2rem;
             }
 
             .box_footer {
@@ -289,7 +290,7 @@ a {
     .contact_text {
         font-size: $font_slightly_bigger;
         text-align: center;
-        line-height: 2.3rem;
+        line-height: 2.2rem;
     }
 }
 
@@ -320,6 +321,7 @@ a {
 
     p {
         font-size: $font_common;
+        line-height: 2.2rem;
     }
 }
 
@@ -351,6 +353,7 @@ a {
             .comment_text_box {
                 .comment_text {
                     font-size: $font_common;
+                    line-height: 2.2rem;
                 }
             }
         }
