@@ -110,7 +110,7 @@ a {
   .hero .hero_headline-container h1 .hero_heading-top {
     font-size: 3.8rem;
     font-weight: 400;
-    text-transform: uppercase; }
+    text-transform: capitalize; }
     @media (min-width: 21.875em) {
       .hero .hero_headline-container h1 .hero_heading-top {
         font-size: 4.4rem; } }
@@ -161,7 +161,10 @@ a {
   .hero_common .hero_headline-container h1 .hero_heading-top {
     font-size: 2.6rem;
     font-weight: 300;
-    text-transform: uppercase; }
+    text-transform: capitalize;
+    line-height: 100%;
+    padding-bottom: 1rem;
+    letter-spacing: .1rem; }
     @media (min-width: 21.875em) {
       .hero_common .hero_headline-container h1 .hero_heading-top {
         font-size: 3rem; } }
@@ -173,16 +176,16 @@ a {
         font-size: 4rem; } }
     @media (min-width: 43em) {
       .hero_common .hero_headline-container h1 .hero_heading-top {
-        font-size: 5rem; } }
+        font-size: 4.5rem; } }
     @media (min-width: 52em) {
       .hero_common .hero_headline-container h1 .hero_heading-top {
-        font-size: 5.5rem; } }
+        font-size: 5rem; } }
     @media (min-width: 60em) {
       .hero_common .hero_headline-container h1 .hero_heading-top {
-        font-size: 6rem; } }
+        font-size: 5.5rem; } }
   .hero_common .hero_headline-container h1 .hero_heading-bottom {
     font-size: 1.4rem;
-    font-weight: 500; }
+    font-weight: 400; }
     @media (min-width: 21.875em) {
       .hero_common .hero_headline-container h1 .hero_heading-bottom {
         font-size: 1.6em; } }
