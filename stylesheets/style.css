@@ -645,7 +645,7 @@ a {
     padding: 2rem 3rem;
     display: inline-flex;
     flex-direction: column;
-    font-weight: 600; }
+    font-weight: 500; }
   .button-like_container .primary_button {
     background-color: #E54B4B;
     color: white;
@@ -682,7 +682,7 @@ a {
   color: white;
   font-size: 1.4rem;
   text-transform: uppercase;
-  font-weight: 600; }
+  font-weight: 500; }
   .btn_button:focus {
     color: #4E4E4E;
     outline: none;

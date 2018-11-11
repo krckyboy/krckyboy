@@ -9,7 +9,7 @@
         padding: 2rem 3rem;
         display: inline-flex;
         flex-direction: column;
-        font-weight: 600;
+        font-weight: 500;
     }
 
     // See all projects
@@ -60,7 +60,7 @@
     color: $color_lightest;
     font-size: $font_slightly_smaller;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
 
     &:focus {
         color: $color_text_default;
