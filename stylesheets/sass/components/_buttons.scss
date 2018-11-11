@@ -2,6 +2,7 @@
 .button-like_container {
     display: flex;
     justify-content: center;
+    align-items: center;
 
     .button {
         border: black;
@@ -55,12 +56,14 @@
     padding: 2rem 8rem;
     display: inline-block;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     background-color: $main_color;
     color: $color_lightest;
     font-size: $font_slightly_smaller;
     text-transform: uppercase;
     font-weight: 500;
+    cursor: pointer;
 
     &:focus {
         color: $color_text_default;

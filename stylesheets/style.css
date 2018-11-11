@@ -638,7 +638,8 @@ a {
 
 .button-like_container {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
   .button-like_container .button {
     border: black;
     border-radius: 4px;
@@ -677,12 +678,14 @@ a {
   padding: 2rem 8rem;
   display: inline-block;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: #E54B4B;
   color: white;
   font-size: 1.4rem;
   text-transform: uppercase;
-  font-weight: 500; }
+  font-weight: 500;
+  cursor: pointer; }
   .btn_button:focus {
     color: #4E4E4E;
     outline: none;
