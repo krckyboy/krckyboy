@@ -205,6 +205,65 @@
     .work_project_photo {
         @include small_border_radius();
     }
+
+    .slideshow {
+        .img_container {
+
+            img {
+                display: none;
+                border-radius: 0;
+
+                &:first-child {
+                    display: block;
+                }
+
+                @include mqMin(37.5em) {
+                    display: block;
+                    height: 100%;
+                }
+            }
+
+            @include mqMin(37.5em) {
+                // grid
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: repeat(3, 15rem);
+                grid-gap: 1rem;
+                height: initial;
+
+                grid-template-areas:
+                    "one one two two three three"
+                    "four four two two five five"
+                    "four four six six six six";
+
+                img {
+                    &:nth-child(1) {
+                        grid-area: one;
+                    }
+
+                    &:nth-child(2) {
+                        grid-area: two;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: three;
+                    }
+
+                    &:nth-child(4) {
+                        grid-area: four;
+                    }
+
+                    &:nth-child(5) {
+                        grid-area: five;
+                    }
+
+                    &:nth-child(6) {
+                        grid-area: six;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .studio {

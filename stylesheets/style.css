@@ -307,29 +307,6 @@ a {
 .hamburger_transform_to_cross .bar:nth-child(3) {
   transform: rotate(-45deg) translate(0.6rem, -0.7rem); }
 
-#test {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  #test .container {
-    background: lightblue;
-    width: 900px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    justify-content: stretch; }
-    #test .container .img-container {
-      flex: 1 1 30%;
-      padding: 5px;
-      height: 150px; }
-      #test .container .img-container:nth-child(2) {
-        height: 200%; }
-      #test .container .img-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; }
-
 .header {
   height: 60px;
   display: flex;
@@ -1046,6 +1023,37 @@ a {
 
 .work .work_project_photo {
   border-radius: 4px; }
+
+.work .slideshow .img_container img {
+  display: none;
+  border-radius: 0; }
+  .work .slideshow .img_container img:first-child {
+    display: block; }
+  @media (min-width: 37.5em) {
+    .work .slideshow .img_container img {
+      display: block;
+      height: 100%; } }
+
+@media (min-width: 37.5em) {
+  .work .slideshow .img_container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 15rem);
+    grid-gap: 1rem;
+    height: initial;
+    grid-template-areas: "one one two two three three" "four four two two five five" "four four six six six six"; }
+    .work .slideshow .img_container img:nth-child(1) {
+      grid-area: one; }
+    .work .slideshow .img_container img:nth-child(2) {
+      grid-area: two; }
+    .work .slideshow .img_container img:nth-child(3) {
+      grid-area: three; }
+    .work .slideshow .img_container img:nth-child(4) {
+      grid-area: four; }
+    .work .slideshow .img_container img:nth-child(5) {
+      grid-area: five; }
+    .work .slideshow .img_container img:nth-child(6) {
+      grid-area: six; } }
 
 .studio .studio_wrapper {
   position: relative;
