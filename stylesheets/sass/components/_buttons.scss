@@ -17,7 +17,7 @@
     .primary_button {
         background-color: $main_color;
         color: $color_lightest;
-        font-size: $font_slightly_smaller;
+        font-size: $font_common;
         text-transform: uppercase;
         @include tiny_shadow();
 
@@ -37,7 +37,7 @@
     .tertiary_button {
         background-color: $color_text_default;
         color: $color_lightest;
-        font-size: $font_slightly_smaller;
+        font-size: $font_common;
         text-transform: uppercase;
         padding: 1rem 2rem;
         border: 1px solid $color_text_default;
@@ -60,7 +60,7 @@
     flex-direction: column;
     background-color: $main_color;
     color: $color_lightest;
-    font-size: $font_slightly_smaller;
+    font-size: $font_common;
     text-transform: uppercase;
     font-weight: 500;
     cursor: pointer;

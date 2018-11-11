@@ -61,7 +61,7 @@ a {
 
 .section_heading {
   position: relative;
-  font-size: 1.9rem;
+  font-size: 2.1rem;
   text-align: center;
   text-transform: capitalize;
   font-weight: 500;
@@ -650,7 +650,7 @@ a {
   .button-like_container .primary_button {
     background-color: #E54B4B;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     box-shadow: 0 2px 5px lightgray; }
   .button-like_container .secondary_button {
@@ -663,7 +663,7 @@ a {
   .button-like_container .tertiary_button {
     background-color: #4E4E4E;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     padding: 1rem 2rem;
     border: 1px solid #4E4E4E; }
@@ -682,7 +682,7 @@ a {
   flex-direction: column;
   background-color: #E54B4B;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: 500;
   cursor: pointer; }
