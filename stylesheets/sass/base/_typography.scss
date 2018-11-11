@@ -31,7 +31,7 @@ a {
     text-align: center;
     text-transform: capitalize;
     font-weight: 500;
-    letter-spacing: .3rem;
+    letter-spacing: .1rem;
 
 
     &::before {
@@ -52,7 +52,7 @@ a {
             font-size: 2.8rem;
             text-align: center;
             font-weight: 400;
-            letter-spacing: .3rem;
+            letter-spacing: .2rem;
             text-transform: capitalize;
         }
 
@@ -289,6 +289,7 @@ a {
     .contact_text {
         font-size: $font_slightly_bigger;
         text-align: center;
+        line-height: 2.3rem;
     }
 }
 

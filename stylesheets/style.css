@@ -65,7 +65,7 @@ a {
   text-align: center;
   text-transform: capitalize;
   font-weight: 500;
-  letter-spacing: .3rem; }
+  letter-spacing: .1rem; }
   .section_heading::before {
     content: "";
     position: absolute;
@@ -80,7 +80,7 @@ a {
   font-size: 2.8rem;
   text-align: center;
   font-weight: 400;
-  letter-spacing: .3rem;
+  letter-spacing: .2rem;
   text-transform: capitalize; }
 
 .projects_main .project_box .project_text {
@@ -235,7 +235,8 @@ a {
 
 .contact .contact_text {
   font-size: 1.6rem;
-  text-align: center; }
+  text-align: center;
+  line-height: 2.3rem; }
 
 .footer {
   font-size: 1.4rem;
@@ -615,7 +616,7 @@ a {
     text-align: center; }
   .slideshow_caption .top {
     font-size: 1.9rem;
-    letter-spacing: .4rem;
+    letter-spacing: .3rem;
     margin-bottom: 2rem; }
   .slideshow_caption .bottom {
     font-size: 1.9rem;
@@ -1059,7 +1060,7 @@ a {
       margin-bottom: 1rem; }
     .studio .studio_boxes .studio_box .top {
       font-size: 1.6rem;
-      letter-spacing: .6rem;
+      letter-spacing: .3rem;
       display: block;
       margin-bottom: 1rem; }
     .studio .studio_boxes .studio_box .bottom {
