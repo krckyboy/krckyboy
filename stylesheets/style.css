@@ -95,7 +95,7 @@ a {
   .header .nav li {
     font-size: 2rem; }
     .header .nav li.nav_active {
-      color: black; }
+      font-weight: 600; }
   .header .mobile_nav li {
     color: #EEE;
     text-transform: uppercase;
@@ -103,7 +103,7 @@ a {
     letter-spacing: .3rem;
     text-align: left; }
     .header .mobile_nav li.nav_active {
-      color: black; }
+      font-weight: 600; }
 
 .hero .hero_headline-container {
   color: white; }
