@@ -17,7 +17,7 @@ const el = {
     heroCommon: document.querySelector(".hero_common"),
     hero: document.querySelector(".hero"),
     scrollUpArr: document.getElementById("scrollUp"),
-    studio: document.getElementsByClassName(".studio"),
+    studio: document.getElementsByClassName("studio"),
     studioImages: document.querySelectorAll(".studio .img_container_bigger img")
 };
 
@@ -84,7 +84,8 @@ ut.ready(function () {
     })()
 
     const slideshow = (function () {
-        if(el.studio) {
+        debugger;
+        if(el.studio.length > 0) {
             let current = 0;
     
             setInterval(function () {
