@@ -1161,9 +1161,13 @@ a {
   justify-content: center;
   align-items: center; }
   .studio .studio_wrapper img {
-    display: none; }
+    opacity: 0;
+    transition: opacity 4s ease-in;
+    position: absolute;
+    width: 100%;
+    height: 100%; }
     .studio .studio_wrapper img:first-child {
-      display: block; }
+      opacity: 1; }
 
 .studio .studio_boxes {
   top: 90%;
@@ -1187,7 +1191,6 @@ a {
       max-width: 80rem; } }
   .studio .studio_boxes .studio_box {
     width: 80%;
-    box-shadow: 0 2px 5px lightgray;
     border: black;
     border-radius: 4px;
     padding: 2rem 2rem;

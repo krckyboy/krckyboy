@@ -16,7 +16,9 @@ const el = {
     aboutSection: document.querySelector("#aboutSection .container_common"),
     heroCommon: document.querySelector(".hero_common"),
     hero: document.querySelector(".hero"),
-    scrollUpArr: document.getElementById("scrollUp")
+    scrollUpArr: document.getElementById("scrollUp"),
+    studio: document.getElementsByClassName(".studio"),
+    studioImages: document.querySelectorAll(".studio .img_container_bigger img")
 };
 
 ut.ready(function () {
@@ -80,6 +82,20 @@ ut.ready(function () {
         }())
 
     })()
+
+    const slideshow = (function () {
+        if(el.studio) {
+            let current = 0;
+    
+            setInterval(function () {
+                for (let i = 0; i < el.studioImages.length; i++) {
+                    el.studioImages[i].style.opacity = 0;
+                }
+                current = (current != el.studioImages.length - 1) ? current + 1 : 0;
+                el.studioImages[current].style.opacity = 1;
+            }, 6000);
+        }
+    }())
 
     const overlay_fs = (function () {
         if (document.querySelector(".sidebar")) {

@@ -374,6 +374,9 @@
 
 .studio {
 
+    .img_container_bigger {
+
+    }
     .studio_wrapper {
         position: relative;
         display: flex;
@@ -381,12 +384,17 @@
         justify-content: center;
         align-items: center;
         img {
-            display: none;
+            opacity: 0;
+            transition: opacity 4s ease-in;
             &:first-child{
-                display: block;
+                opacity: 1;
             }
+            position: absolute;
+            width: 100%;
+            height: 100%;
         }
     }
+
 
     .studio_boxes {
         top: 90%;
@@ -413,7 +421,6 @@
 
         .studio_box {
             width: 80%;
-            @include tiny_shadow();
             border: black;
             @include small_border_radius();
             padding: 2rem 2rem;
