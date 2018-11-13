@@ -84,7 +84,6 @@ ut.ready(function () {
     })()
 
     const slideshow = (function () {
-        debugger;
         if(el.studio.length > 0) {
             let current = 0;
     
