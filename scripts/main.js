@@ -13,7 +13,7 @@ const el = {
         menu: document.getElementById("menu")
     },
     scrollDownArr: document.getElementById("scrollDown"),
-    aboutSection: document.getElementById("aboutSection"),
+    aboutSection: document.querySelector("#aboutSection .container_common"),
     heroCommon: document.querySelector(".hero_common"),
     hero: document.querySelector(".hero"),
     scrollUpArr: document.getElementById("scrollUp")

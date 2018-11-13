@@ -366,10 +366,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: none; }
-    @media (min-width: 37.5em) {
-      .header .logoContainer {
-        display: flex; } }
+    display: flex; }
     .header .logoContainer .logo .logo_image {
       max-height: 4rem; }
   .header .nav {
