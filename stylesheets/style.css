@@ -682,6 +682,13 @@ a {
   display: flex;
   justify-content: center;
   align-items: center; }
+  .button-like_container a {
+    transition: transform .2s; }
+  .button-like_container a:hover {
+    transform: translateY(-4px); }
+  .button-like_container a:focus,
+  .button-like_container a:active {
+    transform: translateY(2px); }
   .button-like_container .button {
     border: black;
     border-radius: 4px;
@@ -727,11 +734,14 @@ a {
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: 500;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: transform .2s; }
+  .btn_button:hover {
+    transform: translateY(-4px); }
+  .btn_button:focus, .btn_button:active {
+    transform: translateY(2px); }
   .btn_button:focus {
-    color: #4E4E4E;
-    outline: none;
-    border: none; }
+    outline: none; }
 
 @media (min-width: 37.5em) {
   .posts_container {
