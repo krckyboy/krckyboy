@@ -265,6 +265,9 @@ a {
     .post_box {
 
         .content_container {
+            a {
+                color: $color_text_default;
+            }
             .post_heading {
                 font-size: $font_common;
                 font-weight: 600;

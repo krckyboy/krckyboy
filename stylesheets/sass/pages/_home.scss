@@ -17,6 +17,7 @@
         width: 4rem;
         transform: translateX(-50%);
         animation: nudge_up_down_hero_arrow 2s infinite;
+        cursor: pointer;
     }
 
     .hero_headline-container {
@@ -202,6 +203,10 @@
 }
 
 .work {
+    &.container_common {
+        max-width: 120rem;
+    }
+
     .work_project_photo {
         @include small_border_radius();
     }
@@ -210,6 +215,8 @@
         .arrows {
             display: none;
         }
+
+
     }
 
 
@@ -242,7 +249,8 @@
                 grid-template-areas:
                     "I-one I-one I-two I-two I-three I-three"
                     "I-four I-four I-two I-two I-five I-five"
-                    "I-four I-four I-six I-six I-six I-six";;
+                    "I-four I-four I-six I-six I-six I-six";
+                ;
 
                 img {
                     &:nth-child(1) {
@@ -270,11 +278,20 @@
                     }
                 }
             }
+
+            @include mqMin(60em) { 
+                grid-template-rows: repeat(3, 20rem);
+            }
         }
     }
 }
 
 .my_equipment {
+
+    &.container_common {
+        max-width: 120rem;
+    }
+
     .work_project_photo {
         @include small_border_radius();
     }
@@ -287,6 +304,7 @@
                 display: none;
             }
         }
+
         .img_container {
             img {
                 display: none;
@@ -313,7 +331,8 @@
                 grid-template-areas:
                     "I-one I-one I-two I-two I-three I-three"
                     "I-four I-four I-two I-two I-five I-five"
-                    "I-four I-four I-six I-six I-six I-six";;
+                    "I-four I-four I-six I-six I-six I-six";
+                ;
 
                 img {
                     &:nth-child(1) {
@@ -340,6 +359,10 @@
                         grid-area: I-six;
                     }
                 }
+            }
+
+            @include mqMin(60em) {
+                grid-template-rows: repeat(3, 20rem);
             }
         }
 
@@ -420,5 +443,11 @@
                 letter-spacing: .1rem;
             }
         }
+    }
+}
+
+.latest_blogs {
+    &.container_common {
+        max-width: 86rem;
     }
 }

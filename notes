@@ -14,15 +14,8 @@ npm install jquery --save
 
 Responsive trick;
  -Tweak font-size (initially 62.5%) for the global change in responsiveness - padding, margins, everything. 
- 
 
 ------------------------------------------
- Todo
-
- -- 1. Dodati mozda jos jedan container za slideshow kako bi mogao da tu rasiris sliku, a pritom i da to bude position relative za arrows
- -- 2. Proveriti components za slideshow
-
-----------------------------------------
 
  Overlay layout:
 
@@ -41,16 +34,21 @@ In media queries, you use ems
 
 -------------------------------------------
 
-Todo [projects]:
+Projects mobile:
 remove padding on bottom container
 justify content space between
 img remove margins
 arrows position absolute and width 100%
 
-
-Todo [Home -> my equipment]
--make a grid just like [my work] on bigger screens
+-------------------------------------------
 
 Todo [Home -> my work] 
 - have only 6 images but make it so that it all randomly slideshows ;)
+
+Todo:
+- hover effect buttons
+---- arrow scroll down thingy in hero home
+---- make grids larger, maybe even full screen
+---- wrap the blog posts in an anchor tag
 ---------------------------------------------
+

@@ -9,7 +9,12 @@ const el = {
         overlay: document.getElementById("menu_overlay"),
         navItems: document.getElementById("mobile_nav"),
         menu: document.getElementById("menu")
-    }
+    },
+    scrollDownArr: document.getElementById("scrollDown"),
+    aboutSection: document.getElementById("aboutSection"),
+    heroCommon: document.querySelector(".hero_common"),
+    hero: document.querySelector(".hero"),
+    scrollUpArr: document.getElementById("scrollUp")
 };
 
 ut.ready(function () {
@@ -35,6 +40,43 @@ ut.ready(function () {
                 heroText.classList.remove("faded");
             }, 500);
         }())
+
+        // Scroll down
+        const scrollDown = (function () {
+            if (el.scrollDownArr) {
+                el.scrollDownArr.addEventListener("click", e => {
+                    el.aboutSection.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                })
+            }
+        }())
+
+        // Scroll up
+        const scrollUp = (function () {
+            // Showing or hiding the scroll up icon
+            window.addEventListener("scroll", e => {
+                if (window.pageYOffset > 1000) {
+                    el.scrollUpArr.style.opacity = "1"
+                } else {
+                    el.scrollUpArr.style.opacity = "0";
+                }
+            })
+
+            el.scrollUpArr.addEventListener("click", e => {
+                // If it's home page
+                if (el.hero) {
+                    el.hero.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                } else {
+                    el.heroCommon.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            })
+        }())
+
     })()
 
     const overlay_fs = (function () {

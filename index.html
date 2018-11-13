@@ -10,8 +10,9 @@
     <title>John Smith | Photography</title>
 </head>
 
-<body>
-    <div class="app">
+<body id="home">
+    <div class="app" id="app">
+        <span id="scrollUp"><img src="images/down-arrow.svg" alt=""></span>
         <header class="header">
             <div class="header_container container_common">
                 <div class="logoContainer">
@@ -56,10 +57,10 @@
                 </h1>
             </div>
 
-            <img class="arrow-down" src="images/down-arrow.svg" alt="Scroll down">
+            <img class="arrow-down" src="images/down-arrow.svg" id="scrollDown" alt="Scroll down">
         </div>
 
-        <section class="about padding_common">
+        <section class="about padding_common" id="aboutSection">
             <div class="container_common">
                 <div class="cont_about_1">
                     <img class="about_img_1" src="images/compressed/resized/black-and-white-fun-happy-91227.jpg" alt="Picture of me smiling, grayscale.">
@@ -145,7 +146,7 @@
 
         <section class="work padding_common container_common">
             <h2 class="section_heading padding_bigger">A glimpse of my work</h2>
-            <div class="slideshow">
+            <div class="slideshow padding_common_top_bottom" >
                 <div class="img_container">
                     <img class="work_project_photo slideshow_photo" src="images/compressed/resized/alone-camera-clouds-985691.jpg"
                         alt="Project image">
@@ -168,7 +169,7 @@
             </div>
 
             <div class="button-like_container padding_common">
-                <a href="#" class="button primary_button">See all projects</a>
+                <a href="blog_post.html" class="button primary_button">See all projects</a>
             </div>
         </section>
 
@@ -228,73 +229,91 @@
             <h2 class="section_heading padding_bigger">Latest blog posts</h2>
             <div class="posts_container">
                 <div class="post_box">
-                    <div class="post_img_container">
-                        <img src="images/compressed/resized/jakob-owens-246558-unsplash.jpg" alt="Blog post image.">
-                    </div>
-                    <div class="content_container padding_common">
-                        <h4 class="post_heading">Nikon D330 review</h4>
-                        <p class="post_text padding_common_top_bottom">Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit. Quod voluptatem delectus incidunt, veniam sed neque maiores quos recusandae similique
-                            dicta non, aspernatur facilis dolores error alias expedita distinctio aliquam explicabo.</p>
-                        <div class="box_footer">
-                            <div class="button-like_container padding_smaller_top_bottom">
-                                <a href="#" class="button secondary_button">READ MORE</a>
+                    <a href="blog_post.html">
+                        <div class="post_img_container">
+                            <img src="images/compressed/resized/jakob-owens-246558-unsplash.jpg" alt="Blog post image.">
+                        </div>
+                    </a>
+                        <div class="content_container padding_common">
+                                <a href="blog_post.html">
+                            <h4 class="post_heading">
+                                Nikon D330 review</h4>
+                                </a>
+                            <p class="post_text padding_common_top_bottom">Lorem ipsum dolor sit amet consectetur
+                                adipisicing
+                                elit. Quod voluptatem delectus incidunt, veniam sed neque maiores quos recusandae similique
+                                dicta non, aspernatur facilis dolores error alias expedita distinctio aliquam explicabo.</p>
+                            <div class="box_footer">
+                                <div class="button-like_container padding_smaller_top_bottom">
+                                    <a href="blog_post.html" class="button secondary_button">READ MORE</a>
+                                </div>
+                                <span class="post_date">10/14/2018</span>
                             </div>
-                            <span class="post_date">10/14/2018</span>
                         </div>
                     </div>
-                </div>
+
 
                 <div class="post_box">
+                        <a href="blog_post.html">
                     <div class="post_img_container">
                         <img src="images/compressed/resized/35mm-analog-analogue-1002634.jpg" alt="Blog post image.">
                     </div>
+                    </a>
                     <div class="content_container padding_common">
+                            <a href="blog_post.html">
                         <h4 class="post_heading">What do you need as a photographer?</h4>
+                        </a>
                         <p class="post_text padding_common_top_bottom">Lorem ipsum dolor sit amet consectetur
                             adipisicing
                             elit. Quod voluptatem delectus incidunt, veniam sed neque maiores quos recusandae similique
                             dicta non, aspernatur facilis dolores error alias expedita distinctio aliquam explicabo.</p>
                         <div class="box_footer">
                             <div class="button-like_container padding_smaller_top_bottom">
-                                <a href="#" class="button secondary_button">READ MORE</a>
+                                <a href="blog_post.html" class="button secondary_button">READ MORE</a>
                             </div>
                             <span class="post_date">10/14/2018</span>
                         </div>
                     </div>
                 </div>
                 <div class="post_box">
+                        <a href="blog_post.html">
                     <div class="post_img_container">
                         <img src="images/compressed/resized/cvdop-limbocker-973689-unsplash.jpg" alt="Blog post image.">
                     </div>
+                    </a>
                     <div class="content_container padding_common">
+                            <a href="blog_post.html">
                         <h4 class="post_heading">The basics of photography</h4>
+                        </a>
                         <p class="post_text padding_common_top_bottom">Lorem ipsum dolor sit amet consectetur
                             adipisicing
                             elit. Quod voluptatem delectus incidunt, veniam sed neque maiores quos recusandae similique
                             dicta non, aspernatur facilis dolores error alias expedita distinctio aliquam explicabo.</p>
                         <div class="box_footer">
                             <div class="button-like_container padding_smaller_top_bottom">
-                                <a href="#" class="button secondary_button">READ MORE</a>
+                                <a href="blog_post.html" class="button secondary_button">READ MORE</a>
                             </div>
                             <span class="post_date">10/14/2018</span>
                         </div>
                     </div>
                 </div>
                 <div class="post_box">
+                        <a href="blog_post.html">
                     <div class="post_img_container">
                         <img src="images/compressed/resized/anant-jain-471051-unsplash.jpg" alt="Blog post image.">
                     </div>
+                    </a>
                     <div class="content_container padding_common">
+                            <a href="blog_post.html">
                         <h4 class="post_heading">How to prepare for bad weather?</h4>
+                        </a>
                         <p class="post_text padding_common_top_bottom">Lorem ipsum dolor sit amet consectetur
                             adipisicing
                             elit. Quod voluptatem delectus incidunt, veniam sed neque maiores quos recusandae similique
                             dicta non, aspernatur facilis dolores error alias expedita distinctio aliquam explicabo.</p>
                         <div class="box_footer">
                             <div class="button-like_container padding_smaller_top_bottom">
-                                <a href="#" class="button secondary_button">READ MORE</a>
+                                <a href="blog_post.html" class="button secondary_button">READ MORE</a>
                             </div>
                             <span class="post_date">10/14/2018</span>
                         </div>
