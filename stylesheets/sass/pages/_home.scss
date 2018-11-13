@@ -323,40 +323,38 @@
             @include mqMin(37.5em) {
                 // grid
                 display: grid;
-                grid-template-columns: repeat(6, 1fr);
-                grid-template-rows: repeat(3, 15rem);
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 15rem);
                 grid-gap: 1rem;
                 height: initial;
 
                 grid-template-areas:
-                    "I-one I-one I-two I-two I-three I-three"
-                    "I-four I-four I-two I-two I-five I-five"
-                    "I-four I-four I-six I-six I-six I-six";
+                    "one four four"
+                    "one four four"
+                    "two three five"
+                    "two three five"
                 ;
 
                 img {
                     &:nth-child(1) {
-                        grid-area: I-one;
+                        grid-area: one;
+                        object-position: bottom;
                     }
 
                     &:nth-child(2) {
-                        grid-area: I-two;
+                        grid-area: two;
                     }
 
                     &:nth-child(3) {
-                        grid-area: I-three;
+                        grid-area: three;
                     }
 
                     &:nth-child(4) {
-                        grid-area: I-four;
+                        grid-area: four;
                     }
 
                     &:nth-child(5) {
-                        grid-area: I-five;
-                    }
-
-                    &:nth-child(6) {
-                        grid-area: I-six;
+                        grid-area: five;
                     }
                 }
             }
@@ -382,6 +380,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        img {
+            display: none;
+            &:first-child{
+                display: block;
+            }
+        }
     }
 
     .studio_boxes {
