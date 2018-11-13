@@ -1,6 +1,8 @@
 import ut from "./modules/utility.js";
 import OverlayFullScreen from "./modules/overlayFullScreen.js";
 
+AOS.init();
+
 // Global DOM elements on website
 const el = {
     body: document.body,
