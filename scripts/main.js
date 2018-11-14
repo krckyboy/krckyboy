@@ -18,6 +18,7 @@ const el = {
     hero: document.querySelector(".hero"),
     scrollUpArr: document.getElementById("scrollUp"),
     studio: document.getElementsByClassName("studio"),
+    studioImages: document.querySelectorAll(".studio .img_container_bigger img"),
     work: {
         work: document.getElementsByClassName("work"),
         imageCont: document.querySelector(".work .img_container"),
@@ -31,7 +32,11 @@ const el = {
         next: document.querySelector(".my_equipment .go_next"),
         captionCont: document.querySelector(".my_equipment .slideshow_caption")
     },
-    studioImages: document.querySelectorAll(".studio .img_container_bigger img")
+    projects: {
+        projects: document.getElementsByClassName("projects_main"),
+        thumbCont: document.querySelector(".projects_main .slideshow_thumb_container"),
+        mainImgCont: document.querySelector(".projects_main .img_container_smaller")
+    }
 };
 
 ut.ready(function () {
@@ -185,7 +190,7 @@ ut.ready(function () {
                 controls.next();
                 controls.clearAll();
                 controls.showCurrent();
-            })
+            }) 
 
             el.myEquipment.previous.addEventListener("click", e => {
                 controls.previous();
@@ -202,6 +207,12 @@ ut.ready(function () {
             const categories = new OverlayFullScreen("categories", "categories_menu", "hamburger");
             archives.eventListeners();
             categories.eventListeners();
+        }
+    }())
+
+    const projectsLightbox = (function () {
+        if(el.projects.projects.length > 0) {
+
         }
     }())
 

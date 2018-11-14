@@ -55,4 +55,6 @@ Todo:
 - [header - menu] To appear from the position where the hamburger is
 - Add lightbox
 ---------------------------------------------
-
+<div id="em" style="width: 1em; visibility:hidden"></div>
+(window.innerWidth / document.getElementById("em").clientWidth) * .625
+window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625 - getting ems in js
