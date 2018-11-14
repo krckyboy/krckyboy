@@ -25,32 +25,81 @@
         }
 
         .slideshow_thumb_container {
-            img {
-                display: none;
-
-                &:nth-child(-n + 2) {
-                    display: block;
-                }
+            .arrows {
+                cursor: pointer;
             }
-        }
 
-        @include mqMin(37.5em) {
-            .slideshow_thumb_container {
-
-                img {
-                    &:nth-child(-n + 3) {
-                        display: block;
-                    }
-                }
+            @include mqMax(60em) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(1, 11rem);
+                grid-template-areas:
+                    "one two three";
 
                 .slideshow_photo {
-                    width: 33%;
+                    opacity: 0;
+                    transition: opacity 1s;
+                    width: 100%;
+                    padding: .5rem;
+
+                    &:nth-child(odd) {
+                        grid-area: one;
+                    }
+
+                    &:nth-child(even) {
+                        grid-area: two;
+                    }
+
+                    &:nth-child(3n) {
+                        grid-area: three;
+                    }
+
+                    &:nth-child(-n + 3) {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            @include mqMax(37.5em) {
+                // height: 11rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(1, 11rem);
+
+                grid-template-areas:
+                    "one two";
+
+                .slideshow_photo {
+                    width: 100%;
+                    opacity: 0;
+
+                    &:nth-child(odd),
+                    &:nth-child(even) {
+                        opacity: 0;
+                    }
+
+                    &:nth-child(odd) {
+                        grid-area: one;
+                    }
+
+                    &:nth-child(even) {
+                        grid-area: two;
+                    }
+
+                    &:nth-child(-n + 2) {
+                        opacity: 1;
+                    }
                 }
             }
         }
+
 
 
         @include mqMin(60em) {
+            .slideshow_thumb_container {
+                display: flex;
+            }
+
             .arrows {
                 display: none;
             }
@@ -59,8 +108,7 @@
             grid-template-columns: repeat(7, 1fr);
             grid-template-rows: repeat(7, 9rem);
 
-            grid-template-areas: 
-            "mp mp mp mp ph ph ph"
+            grid-template-areas: "mp mp mp mp ph ph ph"
             "mp mp mp mp st st st"
             "mp mp mp mp st st st"
             "mp mp mp mp st st st"
@@ -113,12 +161,6 @@
             }
 
         }
-
-        // mp - main photo
-        // ph - project heading
-        // st - slideshow thumbnails
-        // pt - project text
-
 
         &:last-child {
             padding-bottom: 3rem;

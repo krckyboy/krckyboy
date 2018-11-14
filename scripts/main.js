@@ -13,7 +13,7 @@ const el = {
         menu: document.getElementById("menu")
     },
     scrollDownArr: document.getElementById("scrollDown"),
-    aboutSection: document.querySelector("#aboutSection .container_common"),
+    aboutSection: document.getElementById("aboutSection"),
     heroCommon: document.querySelector(".hero_common"),
     hero: document.querySelector(".hero"),
     scrollUpArr: document.getElementById("scrollUp"),
@@ -35,7 +35,9 @@ const el = {
     projects: {
         projects: document.getElementsByClassName("projects_main"),
         thumbCont: document.querySelector(".projects_main .slideshow_thumb_container"),
-        mainImgCont: document.querySelector(".projects_main .img_container_smaller")
+        mainImgCont: document.querySelector(".projects_main .img_container_smaller"),
+        previous: document.querySelector(".projects_main .go_back"),
+        next: document.querySelector(".projects_main .go_next")
     }
 };
 
@@ -128,9 +130,6 @@ ut.ready(function () {
                 showCurrent: () => {
                     el.work.imageCont.children[current].style.opacity = 1;
                 },
-                clearCurrent: () => {
-                    el.work.imageCont.children[current].style.opacity = 0;
-                },
                 clearAll: () => {
                     ut.goThroughElementsOfContainer(el.work.imageCont, e => {
                         e.style.opacity = 0;
@@ -171,10 +170,6 @@ ut.ready(function () {
                     el.myEquipment.imageCont.children[current].style.opacity = 1;
                     el.myEquipment.captionCont.children[current].style.opacity = 1;
                 },
-                clearCurrent: () => {
-                    el.myEquipment.imageCont.children[current].style.opacity = 0;
-                    el.myEquipment.captionCont.children[current].style.opacity = 0;
-                },
                 clearAll: () => {
                     ut.goThroughElementsOfContainer(el.myEquipment.imageCont, e => {
                         e.style.opacity = 0;
@@ -190,7 +185,7 @@ ut.ready(function () {
                 controls.next();
                 controls.clearAll();
                 controls.showCurrent();
-            }) 
+            })
 
             el.myEquipment.previous.addEventListener("click", e => {
                 controls.previous();
@@ -211,8 +206,85 @@ ut.ready(function () {
     }())
 
     const projectsLightbox = (function () {
-        if(el.projects.projects.length > 0) {
+        if (el.projects.projects.length > 0) {
+            // viewport in ems
+            let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
 
+            let current = 0;
+
+            const controls = {
+                two: {
+                    next: () => {
+                        el.projects.thumbCont.children.length - 3 === current ? current = 0 : current += 2;
+                    },
+                    previous: () => {
+                        current === 0 ? current = el.projects.thumbCont.children.length - 3 : current -= 2;
+                    },
+                    showCurrent: () => {
+                        let curr = current;
+                        for (let i = 0; i < 2; i++) {
+                            if (el.projects.thumbCont.children[curr].classList.contains("slideshow_photo")) {
+                                el.projects.thumbCont.children[curr].style.opacity = 1;
+                            }
+                            curr++;
+                        }
+                    }
+                },
+                three: {
+                    next: () => {
+                        el.projects.thumbCont.children.length - 4 === current ? current = 0 : current += 3;
+                    },
+                    previous: () => {
+                        current === 0 ? current = el.projects.thumbCont.children.length - 4 : current -= 3;
+                    },
+                    showCurrent: () => {
+                        let curr = current;
+                        for (let i = 0; i < 3; i++) {
+                            if (el.projects.thumbCont.children[curr].classList.contains("slideshow_photo")) {
+                                el.projects.thumbCont.children[curr].style.opacity = 1;
+                            }
+                            curr++;
+                        }
+                    }
+                },
+                clearAll: () => {
+                    // works
+                    ut.goThroughElementsOfContainer(el.projects.thumbCont, e => {
+                        if (e.classList.contains("slideshow_photo")) {
+                            e.style.opacity = 0;
+                        }
+                    })
+                }
+            }
+            // controls.two.showCurrent();
+
+            el.projects.previous.addEventListener("click", e => {
+                if (viewport >= 37.5 && viewport < 60) {
+                    // logic for 3 thumbnails in a row
+                    controls.three.previous();
+                    controls.clearAll();
+                    controls.three.showCurrent();
+                } else if (viewport < 37.5) {
+                    // logic for 2 thumbnails in a row
+                    controls.two.previous();
+                    controls.clearAll();
+                    controls.two.showCurrent();
+                }
+            })
+
+            el.projects.next.addEventListener("click", e => {
+                if (viewport >= 37.5 && viewport < 60) {
+                    // logic for 3 thumbnails in a row
+                    controls.three.next();
+                    controls.clearAll();
+                    controls.three.showCurrent();
+                } else if (viewport < 37.5) {
+                    // logic for 2 thumbnails in a row     
+                    controls.two.next();
+                    controls.clearAll();
+                    controls.two.showCurrent();
+                } 
+            })
         }
     }())
 
