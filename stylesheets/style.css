@@ -1064,95 +1064,127 @@ a {
 .work.container_common {
   max-width: 120rem; }
 
-.work .work_project_photo {
-  border-radius: 4px; }
-
-@media (min-width: 37.5em) {
-  .work .arrows {
-    display: none; } }
-
-.work .slideshow .img_container img {
-  display: none;
-  border-radius: 0; }
-  .work .slideshow .img_container img:first-child {
-    display: block; }
+.work .slideshow .img_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .work .slideshow .img_container img {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+    .work .slideshow .img_container img:first-child {
+      opacity: 1; }
   @media (min-width: 37.5em) {
-    .work .slideshow .img_container img {
-      display: block;
-      height: 100%; } }
+    .work .slideshow .img_container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(3, 15rem);
+      grid-gap: 1rem;
+      height: initial;
+      grid-template-areas: "I-one I-one I-two I-two I-three I-three" "I-four I-four I-two I-two I-five I-five" "I-four I-four I-six I-six I-six I-six"; }
+      .work .slideshow .img_container img {
+        opacity: 1 !important;
+        border-radius: 0; }
+      .work .slideshow .img_container img:nth-child(1) {
+        grid-area: I-one; }
+      .work .slideshow .img_container img:nth-child(2) {
+        grid-area: I-two; }
+      .work .slideshow .img_container img:nth-child(3) {
+        grid-area: I-three; }
+      .work .slideshow .img_container img:nth-child(4) {
+        grid-area: I-four; }
+      .work .slideshow .img_container img:nth-child(5) {
+        grid-area: I-five; }
+      .work .slideshow .img_container img:nth-child(6) {
+        grid-area: I-six; } }
+  @media (min-width: 60em) {
+    .work .slideshow .img_container {
+      grid-template-rows: repeat(3, 20rem); } }
 
-@media (min-width: 37.5em) {
-  .work .slideshow .img_container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 15rem);
-    grid-gap: 1rem;
-    height: initial;
-    grid-template-areas: "I-one I-one I-two I-two I-three I-three" "I-four I-four I-two I-two I-five I-five" "I-four I-four I-six I-six I-six I-six"; }
-    .work .slideshow .img_container img:nth-child(1) {
-      grid-area: I-one; }
-    .work .slideshow .img_container img:nth-child(2) {
-      grid-area: I-two; }
-    .work .slideshow .img_container img:nth-child(3) {
-      grid-area: I-three; }
-    .work .slideshow .img_container img:nth-child(4) {
-      grid-area: I-four; }
-    .work .slideshow .img_container img:nth-child(5) {
-      grid-area: I-five; }
-    .work .slideshow .img_container img:nth-child(6) {
-      grid-area: I-six; } }
+.work .slideshow .arrows {
+  cursor: pointer; }
+  @media (min-width: 37.5em) {
+    .work .slideshow .arrows {
+      display: none; } }
 
-@media (min-width: 60em) {
-  .work .slideshow .img_container {
-    grid-template-rows: repeat(3, 20rem); } }
-
-.my_equipment.container_common {
+#myEquipment.container_common {
   max-width: 120rem; }
 
-.my_equipment .work_project_photo {
-  border-radius: 4px; }
-
-@media (min-width: 37.5em) {
-  .my_equipment .slideshow .arrows {
-    display: none; } }
-
-.my_equipment .slideshow .img_container img {
-  display: none;
-  border-radius: 0; }
-  .my_equipment .slideshow .img_container img:first-child {
-    display: block; }
+#myEquipment .slideshow .arrows {
+  cursor: pointer; }
   @media (min-width: 37.5em) {
-    .my_equipment .slideshow .img_container img {
-      display: block;
-      height: 100%; } }
+    #myEquipment .slideshow .arrows {
+      display: none; } }
 
-@media (min-width: 37.5em) {
-  .my_equipment .slideshow .img_container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 15rem);
-    grid-gap: 1rem;
-    height: initial;
-    grid-template-areas: "one four four" "one four four" "two three five" "two three five"; }
-    .my_equipment .slideshow .img_container img:nth-child(1) {
-      grid-area: one;
-      object-position: bottom; }
-    .my_equipment .slideshow .img_container img:nth-child(2) {
-      grid-area: two; }
-    .my_equipment .slideshow .img_container img:nth-child(3) {
-      grid-area: three; }
-    .my_equipment .slideshow .img_container img:nth-child(4) {
-      grid-area: four; }
-    .my_equipment .slideshow .img_container img:nth-child(5) {
-      grid-area: five; } }
+#myEquipment .slideshow .img_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #myEquipment .slideshow .img_container img {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+    #myEquipment .slideshow .img_container img:first-child {
+      opacity: 1;
+      object-position: bottom center; }
+  @media (min-width: 37.5em) {
+    #myEquipment .slideshow .img_container img {
+      opacity: 1 !important;
+      border-radius: 0; } }
+  @media (min-width: 37.5em) {
+    #myEquipment .slideshow .img_container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 15rem);
+      grid-gap: 1rem;
+      height: initial;
+      grid-template-areas: "one four four" "one four four" "two three five" "two three five"; }
+      #myEquipment .slideshow .img_container img:nth-child(1) {
+        grid-area: one;
+        object-position: center bottom; }
+      #myEquipment .slideshow .img_container img:nth-child(2) {
+        grid-area: two; }
+      #myEquipment .slideshow .img_container img:nth-child(3) {
+        grid-area: three; }
+      #myEquipment .slideshow .img_container img:nth-child(4) {
+        grid-area: four; }
+      #myEquipment .slideshow .img_container img:nth-child(5) {
+        grid-area: five; } }
+  @media (min-width: 60em) {
+    #myEquipment .slideshow .img_container {
+      grid-template-rows: repeat(3, 20rem); } }
 
-@media (min-width: 60em) {
-  .my_equipment .slideshow .img_container {
-    grid-template-rows: repeat(3, 20rem); } }
-
-@media (min-width: 37.5em) {
-  .my_equipment .slideshow .slideshow_caption {
-    display: none; } }
+#myEquipment .slideshow .slideshow_caption {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3.5rem; }
+  #myEquipment .slideshow .slideshow_caption_text {
+    opacity: 0;
+    transition: opacity .5s ease-in;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+    padding-bottom: 5rem; }
+    #myEquipment .slideshow .slideshow_caption_text:first-child {
+      opacity: 1; }
+  @media (min-width: 37.5em) {
+    #myEquipment .slideshow .slideshow_caption {
+      display: none; } }
 
 .studio .studio_wrapper {
   position: relative;

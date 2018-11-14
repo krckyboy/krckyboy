@@ -51,5 +51,8 @@ Todo:
 ---- make grids larger, maybe even full screen
 ---- wrap the blog posts in an anchor tag
 - [header] Move titles to the left on desktop and add something on the right // maybe "welcome to my portfolio"
+- [header - top] Get rid of background and add when user scrolls past header
+- [header - menu] To appear from the position where the hamburger is
+- Add lightbox
 ---------------------------------------------
 

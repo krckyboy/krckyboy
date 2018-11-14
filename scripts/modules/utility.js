@@ -32,6 +32,11 @@ const ut = {
     // Toggle a class on body element
     toggleClassOnBody: function (classToToggle) {
         document.body.classList.toggle(classToToggle);
+    },
+    goThroughElementsOfContainer: (cont, callback) => {
+        for(let el of cont.children) {
+            callback(el);
+        }
     }
 }
 
