@@ -1356,7 +1356,8 @@ a {
         opacity: 0;
         transition: opacity 1s;
         width: 100%;
-        padding: .5rem; }
+        padding: .5rem;
+        margin: 0; }
         .projects_main .project_box .slideshow_thumb_container .slideshow_photo:nth-child(odd) {
           grid-area: one; }
         .projects_main .project_box .slideshow_thumb_container .slideshow_photo:nth-child(even) {
