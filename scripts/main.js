@@ -337,21 +337,17 @@ class ProjectLightbox {
         this.thumbCont = thumbCont;
         this.previous = previous;
         this.next = next;
-        this.logic()
-        this.responsive();
-    }
-    logic() {
-        let current = 0;
-        const controls = {
+        this.current = 0;
+        this.controls = {
             two: {
                 next: () => {
-                    this.thumbCont.children.length - 3 === current ? current = 0 : current += 2;
+                    this.thumbCont.children.length - 3 === this.current ? this.current = 0 : this.current += 2;
                 },
                 previous: () => {
-                    current === 0 ? current = this.thumbCont.children.length - 3 : current -= 2;
+                    this.current === 0 ? this.current = this.thumbCont.children.length - 3 : this.current -= 2;
                 },
                 showCurrent: () => {
-                    let curr = current;
+                    let curr = this.current;
                     for (let i = 0; i < 2; i++) {
                         if (this.thumbCont.children[curr].classList.contains("slideshow_photo")) {
                             this.thumbCont.children[curr].style.opacity = 1;
@@ -362,13 +358,13 @@ class ProjectLightbox {
             },
             three: {
                 next: () => {
-                    this.thumbCont.children.length - 4 === current ? current = 0 : current += 3;
+                    this.thumbCont.children.length - 4 === this.current ? this.current = 0 : this.current += 3;
                 },
                 previous: () => {
-                    current === 0 ? current = this.thumbCont.children.length - 4 : current -= 3;
+                    this.current === 0 ? this.current = this.thumbCont.children.length - 4 : this.current -= 3;
                 },
                 showCurrent: () => {
-                    let curr = current;
+                    let curr = this.current;
                     for (let i = 0; i < 3; i++) {
                         if (this.thumbCont.children[curr].classList.contains("slideshow_photo")) {
                             this.thumbCont.children[curr].style.opacity = 1;
@@ -393,20 +389,25 @@ class ProjectLightbox {
                 })
             }
         }
-        // controls.two.showCurrent();
+        this.logic()
+        this.responsive();
+    }
 
+
+
+    logic() {
         this.previous.addEventListener("click", e => {
             let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
             if (viewport >= 37.5 && viewport < 60) {
                 // logic for 3 thumbnails in a row
-                controls.three.previous();
-                controls.clearAll();
-                controls.three.showCurrent();
+                this.controls.three.previous();
+                this.controls.clearAll();
+                this.controls.three.showCurrent();
             } else if (viewport < 37.5) {
                 // logic for 2 thumbnails in a row
-                controls.two.previous();
-                controls.clearAll();
-                controls.two.showCurrent();
+                this.controls.two.previous();
+                this.controls.clearAll();
+                this.controls.two.showCurrent();
             }
         })
 
@@ -414,14 +415,14 @@ class ProjectLightbox {
             let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
             if (viewport >= 37.5 && viewport < 60) {
                 // logic for 3 thumbnails in a row
-                controls.three.next();
-                controls.clearAll();
-                controls.three.showCurrent();
+                this.controls.three.next();
+                this.controls.clearAll();
+                this.controls.three.showCurrent();
             } else if (viewport < 37.5) {
                 // logic for 2 thumbnails in a row     
-                controls.two.next();
-                controls.clearAll();
-                controls.two.showCurrent();
+                this.controls.two.next();
+                this.controls.clearAll();
+                this.controls.two.showCurrent();
             }
         });
 
@@ -435,32 +436,32 @@ class ProjectLightbox {
             biggerScreen: false,
             bigScreen: false
         };
-    
+
         // this is for all
         window.addEventListener("resize", e => {
             let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
             if (viewport >= 60) {
                 if (flags.bigScreen === false) {
-                    current = 0;
-                    controls.showAll();
+                    this.current = 0;
+                    this.controls.showAll();
                     ut.setPropTrueAndRestFalse(flags, "bigScreen");
                 }
             } else if (viewport < 37.5) {
                 if (flags.smallScreen === false) {
-                    current = 0;
-                    controls.clearAll()
-                    controls.two.showCurrent();
+                    this.current = 0;
+                    this.controls.clearAll()
+                    this.controls.two.showCurrent();
                     ut.setPropTrueAndRestFalse(flags, "smallScreen");
                 }
             } else {
                 if (flags.biggerScreen === false) {
-                    current = 0;
-                    controls.clearAll();
-                    controls.three.showCurrent();
+                    this.current = 0;
+                    this.controls.clearAll();
+                    this.controls.three.showCurrent();
                     ut.setPropTrueAndRestFalse(flags, "biggerScreen");
                 }
             }
-    
+
         })
     }
 
@@ -469,11 +470,9 @@ class ProjectLightbox {
 const thumbConts = document.getElementsByClassName("slideshow_thumb_container");
 const thumbContsArr = Array.from(thumbConts);
 
-for(let i = 0; i < thumbContsArr.length; i++) {
+for (let i = 0; i < thumbContsArr.length; i++) {
     let thumb = new ProjectLightbox(thumbContsArr[i], thumbContsArr[i].children[6].children[0], thumbContsArr[i].children[6].children[1]);
+    // if(i = thumbContsArr.length-2) {
+    //     thumb.responsive()
+    // } 
 }
-
-
-// const one = new ProjectLightbox(el.projects.thumbCont, el.projects.previous, el.projects.next);
-// one.logic();
-
