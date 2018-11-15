@@ -286,10 +286,10 @@ a {
   line-height: 2.2rem; }
 
 .faded {
-  opacity: 0; }
+  opacity: 0 !important; }
 
 .visible {
-  opacity: 1; }
+  opacity: 1 !important; }
 
 .overflow_hidden {
   overflow: hidden; }
@@ -1340,8 +1340,12 @@ a {
   @media (min-width: 60em) {
     .projects_main .project_box:not(:last-child) {
       padding-bottom: 4rem; } }
+  .projects_main .project_box .img_container_smaller .slideshow_photo {
+    transition: opacity .5s; }
   .projects_main .project_box .slideshow_thumb_container .arrows {
     cursor: pointer; }
+  .projects_main .project_box .slideshow_thumb_container .slideshow_photo.faded {
+    pointer-events: none; }
   @media (max-width: 60em) {
     .projects_main .project_box .slideshow_thumb_container {
       display: grid;

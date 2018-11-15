@@ -24,9 +24,18 @@
             }
         }
 
+        .img_container_smaller{
+            .slideshow_photo{
+                transition: opacity .5s;
+            }
+        }
+
         .slideshow_thumb_container {
             .arrows {
                 cursor: pointer;
+            }
+            .slideshow_photo.faded { 
+                pointer-events: none;
             }
 
             @include mqMax(60em) {

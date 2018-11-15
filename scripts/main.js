@@ -205,274 +205,204 @@ ut.ready(function () {
         }
     }())
 
-    /*
     const projectsLightbox = (function () {
         if (el.projects.projects.length > 0) {
-            // viewport in ems
-            let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
-
-            let current = 0;
-
-            const controls = {
-                two: {
-                    next: () => {
-                        el.projects.thumbCont.children.length - 3 === current ? current = 0 : current += 2;
-                    },
-                    previous: () => {
-                        current === 0 ? current = el.projects.thumbCont.children.length - 3 : current -= 2;
-                    },
-                    showCurrent: () => {
-                        let curr = current;
-                        for (let i = 0; i < 2; i++) {
-                            if (el.projects.thumbCont.children[curr].classList.contains("slideshow_photo")) {
-                                el.projects.thumbCont.children[curr].style.opacity = 1;
+            class ProjectLightbox {
+                constructor(thumbCont, previous, next) {
+                    this.thumbCont = thumbCont;
+                    this.previous = previous;
+                    this.next = next;
+                    this.current = 0;
+                    this.controls = {
+                        two: {
+                            next: () => {
+                                this.thumbCont.children.length - 3 === this.current ? this.current = 0 : this.current += 2;
+                            },
+                            previous: () => {
+                                this.current === 0 ? this.current = this.thumbCont.children.length - 3 : this.current -= 2;
+                            },
+                            showCurrent: () => {
+                                let curr = this.current;
+                                for (let i = 0; i < 2; i++) {
+                                    if (this.thumbCont.children[curr].classList.contains("slideshow_photo")) {
+                                        // this.thumbCont.children[curr].style.opacity = 1;
+                                        this.thumbCont.children[curr].classList.remove("faded");
+                                        this.thumbCont.children[curr].classList.add("visible");
+                                    }
+                                    curr++;
+                                }
                             }
-                            curr++;
+                        },
+                        three: {
+                            next: () => {
+                                this.thumbCont.children.length - 4 === this.current ? this.current = 0 : this.current += 3;
+                            },
+                            previous: () => {
+                                this.current === 0 ? this.current = this.thumbCont.children.length - 4 : this.current -= 3;
+                            },
+                            showCurrent: () => {
+                                let curr = this.current;
+                                for (let i = 0; i < 3; i++) {
+                                    if (this.thumbCont.children[curr].classList.contains("slideshow_photo")) {
+                                        // this.thumbCont.children[curr].style.opacity = 1;
+                                        this.thumbCont.children[curr].classList.remove("faded");
+                                        this.thumbCont.children[curr].classList.add("visible");
+                                    }
+                                    curr++;
+                                }
+                            }
+                        },
+                        clearAll: () => {
+                            // works
+                            ut.goThroughElementsOfContainer(this.thumbCont, e => {
+                                if (e.classList.contains("slideshow_photo")) {
+                                    // e.style.opacity = 0;
+                                    e.classList.remove("visible");
+                                    e.classList.add("faded");
+                                }
+                            })
+                        },
+                        showAll: () => {
+                            ut.goThroughElementsOfContainer(this.thumbCont, e => {
+                                if (e.classList.contains("slideshow_photo")) {
+                                    e.classList.remove("faded");
+                                    e.classList.add("visible");
+                                    // e.style.opacity = 1;
+                                }
+                            })
                         }
                     }
-                },
-                three: {
-                    next: () => {
-                        el.projects.thumbCont.children.length - 4 === current ? current = 0 : current += 3;
-                    },
-                    previous: () => {
-                        current === 0 ? current = el.projects.thumbCont.children.length - 4 : current -= 3;
-                    },
-                    showCurrent: () => {
-                        let curr = current;
-                        for (let i = 0; i < 3; i++) {
-                            if (el.projects.thumbCont.children[curr].classList.contains("slideshow_photo")) {
-                                el.projects.thumbCont.children[curr].style.opacity = 1;
-                            }
-                            curr++;
-                        }
-                    }
-                },
-                clearAll: () => {
-                    // works
-                    ut.goThroughElementsOfContainer(el.projects.thumbCont, e => {
-                        if (e.classList.contains("slideshow_photo")) {
-                            e.style.opacity = 0;
+                    this.previousLogic();
+                    this.nextLogic();
+                    this.responsive();
+                    this.clickOnPic();
+                    this.initialClasses();
+                }
+
+                previousLogic() {
+                    this.previous.addEventListener("click", e => {
+                        let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
+                        if (viewport >= 37.5 && viewport < 60) {
+                            // logic for 3 thumbnails in a row
+                            this.controls.three.previous();
+                            this.controls.clearAll();
+                            this.controls.three.showCurrent();
+                        } else if (viewport < 37.5) {
+                            // logic for 2 thumbnails in a row
+                            this.controls.two.previous();
+                            this.controls.clearAll();
+                            this.controls.two.showCurrent();
                         }
                     })
-                },
-                showAll: () => {
-                    ut.goThroughElementsOfContainer(el.projects.thumbCont, e => {
-                        if (e.classList.contains("slideshow_photo")) {
-                            e.style.opacity = 1;
+                }
+
+                nextLogic() {
+                    this.next.addEventListener("click", e => {
+                        let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
+                        if (viewport >= 37.5 && viewport < 60) {
+                            // logic for 3 thumbnails in a row
+                            this.controls.three.next();
+                            this.controls.clearAll();
+                            this.controls.three.showCurrent();
+                        } else if (viewport < 37.5) {
+                            // logic for 2 thumbnails in a row     
+                            this.controls.two.next();
+                            this.controls.clearAll();
+                            this.controls.two.showCurrent();
+                        }
+                    });
+                }
+
+                initialClasses() {
+                    let flags = {
+                        smallScreen: false,
+                        biggerScreen: false,
+                        bigScreen: false
+                    };
+                    
+                    let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
+                    if (viewport >= 60) {
+                        if (flags.bigScreen === false) {
+                            this.current = 0;
+                            this.controls.showAll();
+                            ut.setPropTrueAndRestFalse(flags, "bigScreen");
+                        }
+                    } else if (viewport < 37.5) {
+                        if (flags.smallScreen === false) {
+                            this.current = 0;
+                            this.controls.clearAll()
+                            this.controls.two.showCurrent();
+                            ut.setPropTrueAndRestFalse(flags, "smallScreen");
+                        }
+                    } else {
+                        if (flags.biggerScreen === false) {
+                            this.current = 0;
+                            this.controls.clearAll();
+                            this.controls.three.showCurrent();
+                            ut.setPropTrueAndRestFalse(flags, "biggerScreen");
+                        }
+                    }
+                }
+
+                responsive() {
+                    let flags = {
+                        smallScreen: false,
+                        biggerScreen: false,
+                        bigScreen: false
+                    };
+
+                    // this is for all
+                    window.addEventListener("resize", e => {
+                        let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
+                        if (viewport >= 60) {
+                            if (flags.bigScreen === false) {
+                                this.current = 0;
+                                this.controls.showAll();
+                                ut.setPropTrueAndRestFalse(flags, "bigScreen");
+                            }
+                        } else if (viewport < 37.5) {
+                            if (flags.smallScreen === false) {
+                                this.current = 0;
+                                this.controls.clearAll()
+                                this.controls.two.showCurrent();
+                                ut.setPropTrueAndRestFalse(flags, "smallScreen");
+                            }
+                        } else {
+                            if (flags.biggerScreen === false) {
+                                this.current = 0;
+                                this.controls.clearAll();
+                                this.controls.three.showCurrent();
+                                ut.setPropTrueAndRestFalse(flags, "biggerScreen");
+                            }
+                        }
+                    })
+                }
+
+                clickOnPic() {
+                    this.thumbCont.addEventListener("click", e => {
+                        if (e.target.classList.contains("slideshow_photo")) {
+                            let src = e.target.src;
+                            let mainPic = e.target.parentElement.parentElement.children[1].firstElementChild;
+                            // mainPic.style.opacity = 0;
+                            mainPic.classList.remove("visible");
+                            mainPic.classList.add("faded");
+                            setTimeout(() => {
+                                mainPic.src = src;
+                                // mainPic.style.opacity = 1;
+                                mainPic.classList.remove("faded");
+                                mainPic.classList.add("visible");
+                            }, 500);
                         }
                     })
                 }
             }
-            // controls.two.showCurrent();
 
-            el.projects.previous.addEventListener("click", e => {
-                let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
-                if (viewport >= 37.5 && viewport < 60) {
-                    // logic for 3 thumbnails in a row
-                    controls.three.previous();
-                    controls.clearAll();
-                    controls.three.showCurrent();
-                } else if (viewport < 37.5) {
-                    // logic for 2 thumbnails in a row
-                    controls.two.previous();
-                    controls.clearAll();
-                    controls.two.showCurrent();
-                }
-            })
+            const thumbConts = document.getElementsByClassName("slideshow_thumb_container");
+            const thumbContsArr = Array.from(thumbConts);
 
-            el.projects.next.addEventListener("click", e => {
-                let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
-                if (viewport >= 37.5 && viewport < 60) {
-                    // logic for 3 thumbnails in a row
-                    controls.three.next();
-                    controls.clearAll();
-                    controls.three.showCurrent();
-                } else if (viewport < 37.5) {
-                    // logic for 2 thumbnails in a row     
-                    controls.two.next();
-                    controls.clearAll();
-                    controls.two.showCurrent();
-                }
-            });
-
-            let flags = {
-                smallScreen: false,
-                biggerScreen: false,
-                bigScreen: false
-            };
-
-            window.addEventListener("resize", e => {
-                let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
-                if (viewport >= 60) {
-                    if (flags.bigScreen === false) {
-                        current = 0;
-                        controls.showAll();
-                        ut.setPropTrueAndRestFalse(flags, "bigScreen");
-                    }
-                } else if (viewport < 37.5) {
-                    if (flags.smallScreen === false) {
-                        current = 0;
-                        controls.clearAll()
-                        controls.two.showCurrent();
-                        ut.setPropTrueAndRestFalse(flags, "smallScreen");
-                    }
-                } else {
-                    if (flags.biggerScreen === false) {
-                        current = 0;
-                        controls.clearAll();
-                        controls.three.showCurrent();
-                        ut.setPropTrueAndRestFalse(flags, "biggerScreen");
-                    }
-                }
-
-            })
+            for (let i = 0; i < thumbContsArr.length; i++) {
+                let thumb = new ProjectLightbox(thumbContsArr[i], thumbContsArr[i].children[6].children[0], thumbContsArr[i].children[6].children[1]);
+            }
         }
     }())
-    */
 })
-
-class ProjectLightbox {
-    constructor(thumbCont, previous, next) {
-        this.thumbCont = thumbCont;
-        this.previous = previous;
-        this.next = next;
-        this.current = 0;
-        this.controls = {
-            two: {
-                next: () => {
-                    this.thumbCont.children.length - 3 === this.current ? this.current = 0 : this.current += 2;
-                },
-                previous: () => {
-                    this.current === 0 ? this.current = this.thumbCont.children.length - 3 : this.current -= 2;
-                },
-                showCurrent: () => {
-                    let curr = this.current;
-                    for (let i = 0; i < 2; i++) {
-                        if (this.thumbCont.children[curr].classList.contains("slideshow_photo")) {
-                            this.thumbCont.children[curr].style.opacity = 1;
-                        }
-                        curr++;
-                    }
-                }
-            },
-            three: {
-                next: () => {
-                    this.thumbCont.children.length - 4 === this.current ? this.current = 0 : this.current += 3;
-                },
-                previous: () => {
-                    this.current === 0 ? this.current = this.thumbCont.children.length - 4 : this.current -= 3;
-                },
-                showCurrent: () => {
-                    let curr = this.current;
-                    for (let i = 0; i < 3; i++) {
-                        if (this.thumbCont.children[curr].classList.contains("slideshow_photo")) {
-                            this.thumbCont.children[curr].style.opacity = 1;
-                        }
-                        curr++;
-                    }
-                }
-            },
-            clearAll: () => {
-                // works
-                ut.goThroughElementsOfContainer(this.thumbCont, e => {
-                    if (e.classList.contains("slideshow_photo")) {
-                        e.style.opacity = 0;
-                    }
-                })
-            },
-            showAll: () => {
-                ut.goThroughElementsOfContainer(this.thumbCont, e => {
-                    if (e.classList.contains("slideshow_photo")) {
-                        e.style.opacity = 1;
-                    }
-                })
-            }
-        }
-        this.logic()
-        this.responsive();
-    }
-
-
-
-    logic() {
-        this.previous.addEventListener("click", e => {
-            let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
-            if (viewport >= 37.5 && viewport < 60) {
-                // logic for 3 thumbnails in a row
-                this.controls.three.previous();
-                this.controls.clearAll();
-                this.controls.three.showCurrent();
-            } else if (viewport < 37.5) {
-                // logic for 2 thumbnails in a row
-                this.controls.two.previous();
-                this.controls.clearAll();
-                this.controls.two.showCurrent();
-            }
-        })
-
-        this.next.addEventListener("click", e => {
-            let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
-            if (viewport >= 37.5 && viewport < 60) {
-                // logic for 3 thumbnails in a row
-                this.controls.three.next();
-                this.controls.clearAll();
-                this.controls.three.showCurrent();
-            } else if (viewport < 37.5) {
-                // logic for 2 thumbnails in a row     
-                this.controls.two.next();
-                this.controls.clearAll();
-                this.controls.two.showCurrent();
-            }
-        });
-
-
-
-    }
-
-    responsive() {
-        let flags = {
-            smallScreen: false,
-            biggerScreen: false,
-            bigScreen: false
-        };
-
-        // this is for all
-        window.addEventListener("resize", e => {
-            let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
-            if (viewport >= 60) {
-                if (flags.bigScreen === false) {
-                    this.current = 0;
-                    this.controls.showAll();
-                    ut.setPropTrueAndRestFalse(flags, "bigScreen");
-                }
-            } else if (viewport < 37.5) {
-                if (flags.smallScreen === false) {
-                    this.current = 0;
-                    this.controls.clearAll()
-                    this.controls.two.showCurrent();
-                    ut.setPropTrueAndRestFalse(flags, "smallScreen");
-                }
-            } else {
-                if (flags.biggerScreen === false) {
-                    this.current = 0;
-                    this.controls.clearAll();
-                    this.controls.three.showCurrent();
-                    ut.setPropTrueAndRestFalse(flags, "biggerScreen");
-                }
-            }
-
-        })
-    }
-
-}
-
-const thumbConts = document.getElementsByClassName("slideshow_thumb_container");
-const thumbContsArr = Array.from(thumbConts);
-
-for (let i = 0; i < thumbContsArr.length; i++) {
-    let thumb = new ProjectLightbox(thumbContsArr[i], thumbContsArr[i].children[6].children[0], thumbContsArr[i].children[6].children[1]);
-    // if(i = thumbContsArr.length-2) {
-    //     thumb.responsive()
-    // } 
-}
