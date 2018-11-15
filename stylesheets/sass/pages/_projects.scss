@@ -24,8 +24,8 @@
             }
         }
 
-        .img_container_smaller{
-            .slideshow_photo{
+        .img_container_smaller {
+            .slideshow_photo {
                 transition: opacity .5s;
             }
         }
@@ -34,9 +34,18 @@
             .arrows {
                 cursor: pointer;
             }
+
             .slideshow_photo {
-                &.faded { 
+                cursor: pointer;
+                position: relative;
+                
+                transition: opacity 1s, padding .2s;
+                &.faded {
                     pointer-events: none;
+                }
+
+                &:hover {
+                    padding: .3rem;
                 }
             }
 
@@ -50,7 +59,6 @@
 
                 .slideshow_photo {
                     opacity: 0;
-                    transition: opacity 1s;
                     width: 100%;
                     padding: .5rem;
                     margin: 0;

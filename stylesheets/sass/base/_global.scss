@@ -22,6 +22,11 @@
     @include hamburger_transform_to_cross;
 }
 
+.activeThumbPic {
+    border: .2rem $main_color solid;
+    padding: .3rem;
+}
+
 #scrollUp {
     position: fixed;
     bottom: 5%;

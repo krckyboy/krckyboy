@@ -70,7 +70,8 @@ ut.ready(function () {
             if (el.scrollDownArr) {
                 el.scrollDownArr.addEventListener("click", e => {
                     el.aboutSection.scrollIntoView({
-                        behavior: "smooth"
+                        behavior: "smooth",
+                        block: "start"
                     });
                 })
             }
@@ -160,11 +161,9 @@ ut.ready(function () {
             const controls = {
                 next: () => {
                     el.myEquipment.imageCont.children.length - 1 === current ? current = 0 : current++;
-                    el.myEquipment.captionCont.children.length - 1 === current ? current = 0 : current++;
                 },
                 previous: () => {
                     current === 0 ? current = el.myEquipment.imageCont.children.length - 1 : current--;
-                    current === 0 ? current = el.myEquipment.captionCont.children.length - 1 : current--;
                 },
                 showCurrent: () => {
                     el.myEquipment.imageCont.children[current].style.opacity = 1;
@@ -225,7 +224,6 @@ ut.ready(function () {
                                 let curr = this.current;
                                 for (let i = 0; i < 2; i++) {
                                     if (this.thumbCont.children[curr].classList.contains("slideshow_photo")) {
-                                        // this.thumbCont.children[curr].style.opacity = 1;
                                         this.thumbCont.children[curr].classList.remove("faded");
                                         this.thumbCont.children[curr].classList.add("visible");
                                     }
@@ -319,7 +317,7 @@ ut.ready(function () {
                         biggerScreen: false,
                         bigScreen: false
                     };
-                    
+
                     let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
                     if (viewport >= 60) {
                         if (flags.bigScreen === false) {
@@ -342,6 +340,8 @@ ut.ready(function () {
                             ut.setPropTrueAndRestFalse(flags, "biggerScreen");
                         }
                     }
+
+                    this.thumbCont.children[0].classList.add("activeThumbPic");
                 }
 
                 responsive() {
@@ -381,14 +381,19 @@ ut.ready(function () {
                 clickOnPic() {
                     this.thumbCont.addEventListener("click", e => {
                         if (e.target.classList.contains("slideshow_photo")) {
+                            for(let i = 0; i < this.thumbCont.childElementCount; i++) {
+                                if(this.thumbCont.children[i].classList.contains("activeThumbPic")) {
+                                    this.thumbCont.children[i].classList.remove("activeThumbPic");
+                                    break;
+                                }
+                            }
+                            e.target.classList.add("activeThumbPic");
                             let src = e.target.src;
                             let mainPic = e.target.parentElement.parentElement.children[1].firstElementChild;
-                            // mainPic.style.opacity = 0;
                             mainPic.classList.remove("visible");
                             mainPic.classList.add("faded");
                             setTimeout(() => {
                                 mainPic.src = src;
-                                // mainPic.style.opacity = 1;
                                 mainPic.classList.remove("faded");
                                 mainPic.classList.add("visible");
                             }, 500);

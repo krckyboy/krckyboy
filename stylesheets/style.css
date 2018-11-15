@@ -310,6 +310,10 @@ a {
 .hamburger_transform_to_cross .bar:nth-child(3) {
   transform: rotate(-45deg) translate(0.6rem, -0.7rem); }
 
+.activeThumbPic {
+  border: 0.2rem #E54B4B solid;
+  padding: .3rem; }
+
 #scrollUp {
   position: fixed;
   bottom: 5%;
@@ -1344,8 +1348,14 @@ a {
     transition: opacity .5s; }
   .projects_main .project_box .slideshow_thumb_container .arrows {
     cursor: pointer; }
-  .projects_main .project_box .slideshow_thumb_container .slideshow_photo.faded {
-    pointer-events: none; }
+  .projects_main .project_box .slideshow_thumb_container .slideshow_photo {
+    cursor: pointer;
+    position: relative;
+    transition: opacity 1s, padding .2s; }
+    .projects_main .project_box .slideshow_thumb_container .slideshow_photo.faded {
+      pointer-events: none; }
+    .projects_main .project_box .slideshow_thumb_container .slideshow_photo:hover {
+      padding: .3rem; }
   @media (max-width: 60em) {
     .projects_main .project_box .slideshow_thumb_container {
       display: grid;
@@ -1354,7 +1364,6 @@ a {
       grid-template-areas: "one two three"; }
       .projects_main .project_box .slideshow_thumb_container .slideshow_photo {
         opacity: 0;
-        transition: opacity 1s;
         width: 100%;
         padding: .5rem;
         margin: 0; }
