@@ -254,11 +254,19 @@ ut.ready(function () {
                             e.style.opacity = 0;
                         }
                     })
+                },
+                showAll: () => {
+                    ut.goThroughElementsOfContainer(el.projects.thumbCont, e => {
+                        if (e.classList.contains("slideshow_photo")) {
+                            e.style.opacity = 1;
+                        }
+                    })
                 }
             }
             // controls.two.showCurrent();
 
             el.projects.previous.addEventListener("click", e => {
+                let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
                 if (viewport >= 37.5 && viewport < 60) {
                     // logic for 3 thumbnails in a row
                     controls.three.previous();
@@ -273,6 +281,7 @@ ut.ready(function () {
             })
 
             el.projects.next.addEventListener("click", e => {
+                let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
                 if (viewport >= 37.5 && viewport < 60) {
                     // logic for 3 thumbnails in a row
                     controls.three.next();
@@ -283,7 +292,52 @@ ut.ready(function () {
                     controls.two.next();
                     controls.clearAll();
                     controls.two.showCurrent();
-                } 
+                }
+            });
+
+            // make a variable for width or something and make a flag
+            // if width has going through one area to the other
+            // window.addEventListener("resize", e => {
+            //     current = 0;
+            //     let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
+            //     if (viewport >= 60) {
+            //         controls.showAll();
+            //     } else if (viewport < 37.5) {
+            //         controls.two.showCurrent();
+            //     } else {
+            //         controls.three.showCurrent();
+            //     }
+            // })
+
+            let flags = {
+                smallScreen: false,
+                biggerScreen: false,
+                bigScreen: false
+            };
+            window.addEventListener("resize", e => {
+                let viewport = window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625;
+                if (viewport >= 60) {
+                    if (flags.bigScreen === false) {
+                        current = 0;
+                        controls.showAll();
+                        ut.setPropTrueAndRestFalse(flags, "bigScreen");
+                    }
+                } else if (viewport < 37.5) {
+                    if (flags.smallScreen === false) {
+                        current = 0;
+                        controls.clearAll()
+                        controls.two.showCurrent();
+                        ut.setPropTrueAndRestFalse(flags, "smallScreen");
+                    }
+                } else {
+                    if (flags.biggerScreen === false) {
+                        current = 0;
+                        controls.clearAll();
+                        controls.three.showCurrent();
+                        ut.setPropTrueAndRestFalse(flags, "biggerScreen");
+                    }
+                }
+
             })
         }
     }())

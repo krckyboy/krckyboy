@@ -139,6 +139,7 @@
                 img {
                     display: block;
                     border-radius: 0;
+                    opacity: 1;
                 }
 
                 .slideshow_photo {
@@ -161,6 +162,12 @@
             }
 
         }
+
+        // mp - main photo
+        // ph - project heading
+        // st - slideshow thumbnails
+        // pt - project text
+
 
         &:last-child {
             padding-bottom: 3rem;

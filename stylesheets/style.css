@@ -1403,7 +1403,8 @@ a {
         flex-direction: column; }
         .projects_main .project_box .slideshow_thumb_container img {
           display: block;
-          border-radius: 0; }
+          border-radius: 0;
+          opacity: 1; }
         .projects_main .project_box .slideshow_thumb_container .slideshow_photo {
           width: 50%; }
       .projects_main .project_box .project_text {

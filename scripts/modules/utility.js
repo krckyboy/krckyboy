@@ -34,8 +34,26 @@ const ut = {
         document.body.classList.toggle(classToToggle);
     },
     goThroughElementsOfContainer: (cont, callback) => {
-        for(let el of cont.children) {
+        for (let el of cont.children) {
             callback(el);
+        }
+    },
+    iterateThroughObjectProperties: (object, callback) => {
+        for (let property in object) {
+            if (object.hasOwnProperty(property)) {
+                callback(property);
+            }
+        }
+    },
+    setPropTrueAndRestFalse: (object, propName) => {
+        for (let property in object) {
+            if (object.hasOwnProperty(property)) {
+                if(property === propName) {
+                    object[property] = true;
+                } else {
+                    object[property] = false;
+                }
+            }
         }
     }
 }
