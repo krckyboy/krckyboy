@@ -1355,6 +1355,7 @@ a {
     .projects_main .project_box .slideshow_thumb_container .slideshow_photo.faded {
       pointer-events: none; }
     .projects_main .project_box .slideshow_thumb_container .slideshow_photo:hover {
+      border: 0.2rem #E54B4B solid;
       padding: .3rem; }
   @media (max-width: 60em) {
     .projects_main .project_box .slideshow_thumb_container {
