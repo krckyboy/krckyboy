@@ -58,3 +58,11 @@ Todo:
 <div id="em" style="width: 1em; visibility:hidden"></div>
 (window.innerWidth / document.getElementById("em").clientWidth) * .625
 window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * .625 - getting ems in js
+---------------------------------------------
+
+Build process:
+    1. Main.sass
+    2. Style.comp.css - compilation
+    3. Style.concat.css - concatenation
+    4. Style.prefix.css - prefixing
+    5. Style.css - compressing
